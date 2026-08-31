@@ -71,7 +71,7 @@ etc.) é solicitada.
 
 ## Contato
 
-Dúvidas sobre esta política: joaobittencourt07@gmail.com
+Dúvidas sobre esta política: joaopbit@proton.me
 
 ---
 
