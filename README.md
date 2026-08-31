@@ -74,6 +74,3 @@ etc.) é solicitada.
 Dúvidas sobre esta política: joaopbit@proton.me
 
 ---
-
-`index.html` neste repositório é a versão estilizada, servida via
-GitHub Pages no link do topo — o conteúdo é o mesmo deste README.
