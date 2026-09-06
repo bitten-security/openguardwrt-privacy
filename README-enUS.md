@@ -33,4 +33,4 @@ Android permissions used
 No other permission (camera, location, contacts, storage, etc.) is requested.
 
 Contact
-Questions about this policy: [joaopbit@proton.me](mailto:joaopbit@proton.me)
+Questions about this policy: [bittensecurity@proton.me](mailto:bittensecurity@proton.me)
