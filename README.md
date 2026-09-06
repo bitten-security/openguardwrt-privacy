@@ -71,6 +71,6 @@ etc.) é solicitada.
 
 ## Contato
 
-Dúvidas sobre esta política: joaopbit@proton.me
+Dúvidas sobre esta política: bittensecurity@proton.me
 
 ---
