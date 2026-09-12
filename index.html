@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenGuardWRT — painel para o seu OpenWrt e AdGuard Home</title>
-<meta name="description" content="Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home. Sem conta, sem nuvem, sem servidor no meio.">
+<title data-i18n="meta.title">OpenGuardWRT — painel para o seu OpenWrt e AdGuard Home</title>
+<meta name="description" content="Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home. Sem conta, sem nuvem, sem servidor no meio." data-i18n-attr="content" data-i18n="meta.desc">
 <link rel="icon" href="assets/logo.png">
 <style>
   :root{
@@ -47,14 +47,24 @@
     background:rgba(11,22,38,.85);backdrop-filter:blur(10px);
     border-bottom:1px solid var(--border);
   }
-  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;gap:16px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;text-decoration:none}
   .brand img{width:28px;height:28px}
   .brand b{color:var(--emerald)}
   nav.links{display:flex;gap:24px;font-size:14px;color:var(--text-dim)}
   nav.links a{text-decoration:none}
   nav.links a:hover{color:var(--text)}
-  @media (max-width:640px){ nav.links{display:none} }
+  @media (max-width:760px){ nav.links{display:none} }
+  .nav-right{display:flex;align-items:center;gap:14px}
+
+  /* Language switcher */
+  .langsw{display:flex;gap:4px;background:var(--surface-alt);border-radius:999px;padding:4px}
+  .langsw button{
+    border:none;background:transparent;cursor:pointer;font-size:17px;line-height:1;
+    padding:6px 8px;border-radius:999px;opacity:.5;transition:opacity .15s;
+  }
+  .langsw button:hover{opacity:.8}
+  .langsw button.active{opacity:1;background:var(--surface);box-shadow:0 0 0 1px var(--border)}
 
   /* Hero */
   .hero{padding:88px 0 40px;text-align:center;position:relative;overflow:hidden}
@@ -166,54 +176,61 @@
   <div class="wrap">
     <a class="brand" href="#top"><img src="assets/logo.png" alt=""><span>OpenGuard<b>WRT</b></span></a>
     <nav class="links">
-      <a href="#recursos">Recursos</a>
-      <a href="#capturas">Capturas</a>
-      <a href="#requisitos">Requisitos</a>
-      <a href="#testar">Ajude a testar</a>
-      <a href="#faq">FAQ</a>
+      <a href="#recursos" data-i18n="nav.features">Recursos</a>
+      <a href="#capturas" data-i18n="nav.gallery">Capturas</a>
+      <a href="#requisitos" data-i18n="nav.requirements">Requisitos</a>
+      <a href="#testar" data-i18n="nav.testing">Ajude a testar</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
-    <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt" style="padding:8px 18px;font-size:13px">Google Play</a>
+    <div class="nav-right">
+      <div class="langsw" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" onclick="setLang('en')" title="English">🇺🇸</button>
+        <button type="button" data-lang-btn="es" onclick="setLang('es')" title="Español">🇪🇸</button>
+        <button type="button" data-lang-btn="pt" onclick="setLang('pt')" title="Português">🇧🇷</button>
+      </div>
+      <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt" style="padding:8px 18px;font-size:13px">Google Play</a>
+    </div>
   </div>
 </header>
 
 <a id="top"></a>
 <section class="hero">
   <div class="wrap">
-    <span class="pill">EM TESTE FECHADO</span>
-    <h1>Controle seu <span class="grad">OpenWrt</span><br>com estilo.</h1>
-    <p class="lead">Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home — direto no seu aparelho, sem conta, sem nuvem, sem servidor no meio.</p>
+    <span class="pill" data-i18n="hero.pill">EM TESTE FECHADO</span>
+    <h1 data-i18n="hero.h1">Controle seu <span class="grad">OpenWrt</span><br>com estilo.</h1>
+    <p class="lead" data-i18n="hero.lead">Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home — direto no seu aparelho, sem conta, sem nuvem, sem servidor no meio.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt">▶ Google Play</a>
-      <a class="btn btn-outline" href="https://groups.google.com/g/openguardwrt">Entrar no grupo de testes</a>
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt" data-i18n="hero.cta_play">▶ Google Play</a>
+      <a class="btn btn-outline" href="https://groups.google.com/g/openguardwrt" data-i18n="hero.cta_group">Entrar no grupo de testes</a>
       <a class="btn btn-outline" href="https://github.com/bitten-security/OpenGuardWRT/issues">GitHub</a>
     </div>
     <div class="phone">
-      <img src="assets/01_dashboard.png" alt="Dashboard do OpenGuardWRT mostrando status do sistema protegido">
+      <img src="assets/01_dashboard.png" alt="Dashboard do OpenGuardWRT mostrando status do sistema protegido" data-i18n-attr="alt" data-i18n="hero.img_alt">
     </div>
   </div>
 </section>
 
 <section id="recursos">
   <div class="wrap">
-    <h2>Tudo que o seu roteador sabe, num só lugar</h2>
-    <p class="subtitle">Uma interface moderna e direta pra acompanhar sua rede, sem precisar abrir o LuCI.</p>
+    <h2 data-i18n="feat.h2">Tudo que o seu roteador sabe, num só lugar</h2>
+    <p class="subtitle" data-i18n="feat.sub">Uma interface moderna e direta pra acompanhar sua rede, sem precisar abrir o LuCI.</p>
     <div class="feature-layout">
       <div class="feature-list">
         <div class="feature-card">
           <div class="feature-num">01</div>
-          <div><h3>Dashboard em tempo real</h3><p>CPU, RAM, armazenamento, tráfego de internet e status da WAN, atualizados a cada poucos segundos.</p></div>
+          <div><h3 data-i18n="feat.1.title">Dashboard em tempo real</h3><p data-i18n="feat.1.desc">CPU, RAM, armazenamento, tráfego de internet e status da WAN, atualizados a cada poucos segundos.</p></div>
         </div>
         <div class="feature-card accent">
           <div class="feature-num">02</div>
-          <div><h3>Dispositivos e Wi-Fi</h3><p>Todo dispositivo conhecido pelo DHCP, com filtro por categoria, QR code de conexão e senha da rede.</p></div>
+          <div><h3 data-i18n="feat.2.title">Dispositivos e Wi-Fi</h3><p data-i18n="feat.2.desc">Todo dispositivo conhecido pelo DHCP, com filtro por categoria, QR code de conexão e senha da rede.</p></div>
         </div>
         <div class="feature-card">
           <div class="feature-num">03</div>
-          <div><h3>Segurança de verdade</h3><p>Firewall, WireGuard, banIP, ACME, MultiWAN e mais — tudo somente leitura, com reinício opcional do firewall.</p></div>
+          <div><h3 data-i18n="feat.3.title">Segurança de verdade</h3><p data-i18n="feat.3.desc">Firewall, WireGuard, banIP, ACME, MultiWAN e mais — tudo somente leitura, com reinício opcional do firewall.</p></div>
         </div>
         <div class="feature-card">
           <div class="feature-num">04</div>
-          <div><h3>AdGuard Home completo</h3><p>Proteção, filtros, estatísticas e log de consultas DNS ao vivo, com upstreams e tempo de resposta em destaque.</p></div>
+          <div><h3 data-i18n="feat.4.title">AdGuard Home completo</h3><p data-i18n="feat.4.desc">Proteção, filtros, estatísticas e log de consultas DNS ao vivo, com upstreams e tempo de resposta em destaque.</p></div>
         </div>
       </div>
     </div>
@@ -222,44 +239,44 @@
 
 <section id="capturas" class="tight">
   <div class="wrap">
-    <h2>Por dentro do app</h2>
-    <p class="subtitle">Todo dado pessoal visível nas capturas (IP público, nomes de dispositivo, domínio de DDNS) foi borrado antes da publicação.</p>
+    <h2 data-i18n="gal.h2">Por dentro do app</h2>
+    <p class="subtitle" data-i18n="gal.sub">Todo dado pessoal visível nas capturas (IP público, nomes de dispositivo, domínio de DDNS) foi borrado antes da publicação.</p>
     <div class="gallery">
-      <figure><div class="phone"><img src="assets/01_dashboard.png" alt="Dashboard"></div><figcaption>Dashboard</figcaption></figure>
-      <figure><div class="phone"><img src="assets/02_dashboard_network.png" alt="Dashboard — SQM, DDNS e interfaces"></div><figcaption>Dashboard (rede)</figcaption></figure>
-      <figure><div class="phone"><img src="assets/03_devices.png" alt="Dispositivos"></div><figcaption>Dispositivos</figcaption></figure>
-      <figure><div class="phone"><img src="assets/04_security.png" alt="Segurança"></div><figcaption>Segurança</figcaption></figure>
+      <figure><div class="phone"><img src="assets/01_dashboard.png" alt="Dashboard"></div><figcaption data-i18n="gal.cap1">Dashboard</figcaption></figure>
+      <figure><div class="phone"><img src="assets/02_dashboard_network.png" alt="Dashboard — SQM, DDNS e interfaces"></div><figcaption data-i18n="gal.cap2">Dashboard (rede)</figcaption></figure>
+      <figure><div class="phone"><img src="assets/03_devices.png" alt="Dispositivos"></div><figcaption data-i18n="gal.cap3">Dispositivos</figcaption></figure>
+      <figure><div class="phone"><img src="assets/04_security.png" alt="Segurança"></div><figcaption data-i18n="gal.cap4">Segurança</figcaption></figure>
       <figure><div class="phone"><img src="assets/05_adguard.png" alt="AdGuard Home"></div><figcaption>AdGuard Home</figcaption></figure>
-      <figure><div class="phone"><img src="assets/06_adguard_dns.png" alt="Consultas DNS"></div><figcaption>Consultas DNS</figcaption></figure>
+      <figure><div class="phone"><img src="assets/06_adguard_dns.png" alt="Consultas DNS"></div><figcaption data-i18n="gal.cap6">Consultas DNS</figcaption></figure>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Gratuito pra sempre, Pro se quiser apoiar</h2>
-    <p class="subtitle">Sem anúncios, sem assinatura, sem dado coletado em nenhum dos dois planos.</p>
+    <h2 data-i18n="price.h2">Gratuito pra sempre, Pro se quiser apoiar</h2>
+    <p class="subtitle" data-i18n="price.sub">Sem anúncios, sem assinatura, sem dado coletado em nenhum dos dois planos.</p>
     <div class="price-grid">
       <div class="price-card">
-        <h3>Gratuito</h3>
-        <div class="price-tag">Pra sempre</div>
+        <h3 data-i18n="price.free.title">Gratuito</h3>
+        <div class="price-tag" data-i18n="price.free.tag">Pra sempre</div>
         <ul>
-          <li><span class="check">✓</span> Painel completo (OpenWrt + AdGuard Home)</li>
-          <li><span class="check">✓</span> 1 roteador salvo</li>
-          <li><span class="lock">🔒</span> Widgets na tela inicial</li>
-          <li><span class="lock">🔒</span> Alertas em segundo plano</li>
-          <li><span class="lock">🔒</span> Backup criptografado</li>
+          <li><span class="check">✓</span> <span data-i18n="price.free.li1">Painel completo (OpenWrt + AdGuard Home)</span></li>
+          <li><span class="check">✓</span> <span data-i18n="price.free.li2">1 roteador salvo</span></li>
+          <li><span class="lock">🔒</span> <span data-i18n="price.free.li3">Widgets na tela inicial</span></li>
+          <li><span class="lock">🔒</span> <span data-i18n="price.free.li4">Alertas em segundo plano</span></li>
+          <li><span class="lock">🔒</span> <span data-i18n="price.free.li5">Backup criptografado</span></li>
         </ul>
       </div>
       <div class="price-card pro">
-        <h3>Pro</h3>
-        <div class="price-tag">Compra única, sem assinatura</div>
+        <h3 data-i18n="price.pro.title">Pro</h3>
+        <div class="price-tag" data-i18n="price.pro.tag">Compra única, sem assinatura</div>
         <ul>
-          <li><span class="check">✓</span> Roteadores ilimitados</li>
-          <li><span class="check">✓</span> Widgets na tela inicial</li>
-          <li><span class="check">✓</span> Alertas em segundo plano</li>
-          <li><span class="check">✓</span> Backup criptografado (exportar/importar)</li>
-          <li><span class="check">✓</span> Estatísticas e log ao vivo do AdGuard completos</li>
+          <li><span class="check">✓</span> <span data-i18n="price.pro.li1">Roteadores ilimitados</span></li>
+          <li><span class="check">✓</span> <span data-i18n="price.pro.li2">Widgets na tela inicial</span></li>
+          <li><span class="check">✓</span> <span data-i18n="price.pro.li3">Alertas em segundo plano</span></li>
+          <li><span class="check">✓</span> <span data-i18n="price.pro.li4">Backup criptografado (exportar/importar)</span></li>
+          <li><span class="check">✓</span> <span data-i18n="price.pro.li5">Estatísticas e log ao vivo do AdGuard completos</span></li>
         </ul>
       </div>
     </div>
@@ -268,28 +285,28 @@
 
 <section id="requisitos" class="tight">
   <div class="wrap">
-    <h2>Requisitos</h2>
-    <p class="subtitle">Feito pra funcionar com uma instalação padrão de OpenWrt — nada de pacote exótico.</p>
+    <h2 data-i18n="req.h2">Requisitos</h2>
+    <p class="subtitle" data-i18n="req.sub">Feito pra funcionar com uma instalação padrão de OpenWrt — nada de pacote exótico.</p>
     <div class="grid4">
       <div class="req-card">
         <div class="req-icon" style="background:rgba(34,211,238,.15);color:var(--cyan)">📡</div>
-        <h3>OpenWrt</h3>
-        <p>Com a API ubus/LuCI acessível — na sua rede local, ou por VPN/túnel próprio.</p>
+        <h3 data-i18n="req.1.title">OpenWrt</h3>
+        <p data-i18n="req.1.desc">Com a API ubus/LuCI acessível — na sua rede local, ou por VPN/túnel próprio.</p>
       </div>
       <div class="req-card">
         <div class="req-icon" style="background:rgba(168,85,247,.15);color:var(--purple)">🛡️</div>
-        <h3>AdGuard Home</h3>
-        <p>Opcional — só é usado nas telas de DNS e proteção. O resto do app funciona sem ele.</p>
+        <h3 data-i18n="req.2.title">AdGuard Home</h3>
+        <p data-i18n="req.2.desc">Opcional — só é usado nas telas de DNS e proteção. O resto do app funciona sem ele.</p>
       </div>
       <div class="req-card">
         <div class="req-icon" style="background:rgba(245,158,11,.15);color:var(--orange)">🧩</div>
-        <h3>Pacotes opcionais</h3>
-        <p>banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard — cada um só aparece se estiver instalado.</p>
+        <h3 data-i18n="req.3.title">Pacotes opcionais</h3>
+        <p data-i18n="req.3.desc">banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard — cada um só aparece se estiver instalado.</p>
       </div>
       <div class="req-card">
         <div class="req-icon" style="background:rgba(16,185,129,.15);color:var(--emerald)">🔐</div>
-        <h3>Credenciais locais</h3>
-        <p>Usuário e senha do roteador ficam cifrados no Android Keystore, nunca em texto puro.</p>
+        <h3 data-i18n="req.4.title">Credenciais locais</h3>
+        <p data-i18n="req.4.desc">Usuário e senha do roteador ficam cifrados no Android Keystore, nunca em texto puro.</p>
       </div>
     </div>
   </div>
@@ -298,14 +315,14 @@
 <section id="testar">
   <div class="wrap">
     <div class="panel">
-      <h2 style="margin-bottom:8px">Ajude a testar o OpenGuardWRT</h2>
-      <p class="subtitle" style="margin-bottom:0">O app está em teste fechado no Google Play. Participar é rápido:</p>
+      <h2 style="margin-bottom:8px" data-i18n="test.h2">Ajude a testar o OpenGuardWRT</h2>
+      <p class="subtitle" style="margin-bottom:0" data-i18n="test.sub">O app está em teste fechado no Google Play. Participar é rápido:</p>
       <div class="steps">
-        <div class="step"><b>1. Entre no grupo</b><a href="https://groups.google.com/g/openguardwrt">groups.google.com/g/openguardwrt</a></div>
-        <div class="step"><b>2. Aceite o convite</b><a href="https://play.google.com/apps/testing/com.openguardwrt.openguardwrt">play.google.com/apps/testing/…</a></div>
-        <div class="step"><b>3. Instale</b><a href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt">play.google.com/store/apps/details…</a></div>
+        <div class="step"><b data-i18n="test.step1">1. Entre no grupo</b><a href="https://groups.google.com/g/openguardwrt">groups.google.com/g/openguardwrt</a></div>
+        <div class="step"><b data-i18n="test.step2">2. Aceite o convite</b><a href="https://play.google.com/apps/testing/com.openguardwrt.openguardwrt">play.google.com/apps/testing/…</a></div>
+        <div class="step"><b data-i18n="test.step3">3. Instale</b><a href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt">play.google.com/store/apps/details…</a></div>
       </div>
-      <p style="color:var(--text-dim);font-size:14.5px;max-width:560px;margin:0 auto">
+      <p style="color:var(--text-dim);font-size:14.5px;max-width:560px;margin:0 auto" data-i18n="test.thanks">
         <strong style="color:var(--text)">Obrigado a todo mundo que já está testando</strong> — cada roteador diferente, cada firmware, cada combinação de pacotes instalados é o que torna esse painel confiável pra além do meu próprio setup. 💙
       </p>
     </div>
@@ -314,30 +331,30 @@
 
 <section id="faq" class="tight">
   <div class="wrap" style="max-width:760px">
-    <h2>Perguntas frequentes</h2>
+    <h2 data-i18n="faq.h2">Perguntas frequentes</h2>
     <details class="faq">
-      <summary>O OpenGuardWRT altera alguma configuração do roteador?</summary>
-      <p>Não, por padrão. O app é somente leitura — a única exceção é reiniciar o firewall ou bloquear/desbloquear um dispositivo no AdGuard, e mesmo assim só depois de você ativar "Permitir alterações no roteador" nas Configurações.</p>
+      <summary data-i18n="faq.1.q">O OpenGuardWRT altera alguma configuração do roteador?</summary>
+      <p data-i18n="faq.1.a">Não, por padrão. O app é somente leitura — a única exceção é reiniciar o firewall ou bloquear/desbloquear um dispositivo no AdGuard, e mesmo assim só depois de você ativar "Permitir alterações no roteador" nas Configurações.</p>
     </details>
     <details class="faq">
-      <summary>Preciso instalar algo além do OpenWrt padrão?</summary>
-      <p>Não. O app fala com a API ubus/LuCI que já vem em qualquer instalação padrão de OpenWrt. AdGuard Home, banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard são todos opcionais.</p>
+      <summary data-i18n="faq.2.q">Preciso instalar algo além do OpenWrt padrão?</summary>
+      <p data-i18n="faq.2.a">Não. O app fala com a API ubus/LuCI que já vem em qualquer instalação padrão de OpenWrt. AdGuard Home, banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard são todos opcionais.</p>
     </details>
     <details class="faq">
-      <summary>O app coleta meus dados?</summary>
-      <p>Não. Não existe servidor nosso — o app fala apenas com o roteador que você mesmo configura. Suas credenciais ficam cifradas no Android Keystore e nunca saem do aparelho. Veja a <a href="README.md">política de privacidade completa</a>.</p>
+      <summary data-i18n="faq.3.q">O app coleta meus dados?</summary>
+      <p data-i18n="faq.3.a">Não. Não existe servidor nosso — o app fala apenas com o roteador que você mesmo configura. Suas credenciais ficam cifradas no Android Keystore e nunca saem do aparelho. Veja a <a href="README.md">política de privacidade completa</a>.</p>
     </details>
     <details class="faq">
-      <summary>É de graça?</summary>
-      <p>Sim, o painel completo é gratuito pra sempre com 1 roteador salvo. Um desbloqueio Pro opcional (compra única, sem assinatura) libera roteadores ilimitados, widgets, alertas e backup criptografado.</p>
+      <summary data-i18n="faq.4.q">É de graça?</summary>
+      <p data-i18n="faq.4.a">Sim, o painel completo é gratuito pra sempre com 1 roteador salvo. Um desbloqueio Pro opcional (compra única, sem assinatura) libera roteadores ilimitados, widgets, alertas e backup criptografado.</p>
     </details>
     <details class="faq">
-      <summary>Em quais idiomas o app está disponível?</summary>
-      <p>Português, inglês e espanhol — dá pra trocar a qualquer momento em Configurações.</p>
+      <summary data-i18n="faq.5.q">Em quais idiomas o app está disponível?</summary>
+      <p data-i18n="faq.5.a">Português, inglês e espanhol — dá pra trocar a qualquer momento em Configurações.</p>
     </details>
     <details class="faq">
-      <summary>Como reporto um bug ou peço um recurso?</summary>
-      <p>Abra uma <a href="https://github.com/bitten-security/OpenGuardWRT/issues">issue no GitHub</a> ou entre no <a href="https://groups.google.com/g/openguardwrt">grupo de testes</a> e comente por lá.</p>
+      <summary data-i18n="faq.6.q">Como reporto um bug ou peço um recurso?</summary>
+      <p data-i18n="faq.6.a">Abra uma <a href="https://github.com/bitten-security/OpenGuardWRT/issues">issue no GitHub</a> ou entre no <a href="https://groups.google.com/g/openguardwrt">grupo de testes</a> e comente por lá.</p>
     </details>
   </div>
 </section>
@@ -347,13 +364,225 @@
     <div class="foot-links">
       <a href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt">Google Play</a>
       <a href="https://github.com/bitten-security/OpenGuardWRT/issues">Issues</a>
-      <a href="https://groups.google.com/g/openguardwrt">Grupo de testes</a>
-      <a href="README.md">Política de Privacidade</a>
+      <a href="https://groups.google.com/g/openguardwrt" data-i18n="foot.group">Grupo de testes</a>
+      <a href="README.md" data-i18n="foot.privacy">Política de Privacidade</a>
     </div>
-    <p>OpenGuardWRT não tem servidor próprio, não coleta dados e não compartilha nada com terceiros.</p>
-    <p>Contato: bittensecurity@proton.me · © 2026</p>
+    <p data-i18n="foot.line1">OpenGuardWRT não tem servidor próprio, não coleta dados e não compartilha nada com terceiros.</p>
+    <p><span data-i18n="foot.contact">Contato</span>: bittensecurity@proton.me · © 2026</p>
   </div>
 </footer>
+
+<script>
+const I18N = {
+  pt: {
+    "meta.title": "OpenGuardWRT — painel para o seu OpenWrt e AdGuard Home",
+    "meta.desc": "Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home. Sem conta, sem nuvem, sem servidor no meio.",
+    "nav.features": "Recursos", "nav.gallery": "Capturas", "nav.requirements": "Requisitos",
+    "nav.testing": "Ajude a testar", "nav.faq": "FAQ",
+    "hero.pill": "EM TESTE FECHADO",
+    "hero.h1": 'Controle seu <span class="grad">OpenWrt</span><br>com estilo.',
+    "hero.lead": "Painel Android somente leitura para o seu roteador OpenWrt e AdGuard Home — direto no seu aparelho, sem conta, sem nuvem, sem servidor no meio.",
+    "hero.cta_play": "▶ Google Play", "hero.cta_group": "Entrar no grupo de testes",
+    "hero.img_alt": "Dashboard do OpenGuardWRT mostrando status do sistema protegido",
+    "feat.h2": "Tudo que o seu roteador sabe, num só lugar",
+    "feat.sub": "Uma interface moderna e direta pra acompanhar sua rede, sem precisar abrir o LuCI.",
+    "feat.1.title": "Dashboard em tempo real",
+    "feat.1.desc": "CPU, RAM, armazenamento, tráfego de internet e status da WAN, atualizados a cada poucos segundos.",
+    "feat.2.title": "Dispositivos e Wi-Fi",
+    "feat.2.desc": "Todo dispositivo conhecido pelo DHCP, com filtro por categoria, QR code de conexão e senha da rede.",
+    "feat.3.title": "Segurança de verdade",
+    "feat.3.desc": "Firewall, WireGuard, banIP, ACME, MultiWAN e mais — tudo somente leitura, com reinício opcional do firewall.",
+    "feat.4.title": "AdGuard Home completo",
+    "feat.4.desc": "Proteção, filtros, estatísticas e log de consultas DNS ao vivo, com upstreams e tempo de resposta em destaque.",
+    "gal.h2": "Por dentro do app",
+    "gal.sub": "Todo dado pessoal visível nas capturas (IP público, nomes de dispositivo, domínio de DDNS) foi borrado antes da publicação.",
+    "gal.cap1": "Dashboard", "gal.cap2": "Dashboard (rede)", "gal.cap3": "Dispositivos",
+    "gal.cap4": "Segurança", "gal.cap6": "Consultas DNS",
+    "price.h2": "Gratuito pra sempre, Pro se quiser apoiar",
+    "price.sub": "Sem anúncios, sem assinatura, sem dado coletado em nenhum dos dois planos.",
+    "price.free.title": "Gratuito", "price.free.tag": "Pra sempre",
+    "price.free.li1": "Painel completo (OpenWrt + AdGuard Home)", "price.free.li2": "1 roteador salvo",
+    "price.free.li3": "Widgets na tela inicial", "price.free.li4": "Alertas em segundo plano",
+    "price.free.li5": "Backup criptografado",
+    "price.pro.title": "Pro", "price.pro.tag": "Compra única, sem assinatura",
+    "price.pro.li1": "Roteadores ilimitados", "price.pro.li2": "Widgets na tela inicial",
+    "price.pro.li3": "Alertas em segundo plano", "price.pro.li4": "Backup criptografado (exportar/importar)",
+    "price.pro.li5": "Estatísticas e log ao vivo do AdGuard completos",
+    "req.h2": "Requisitos", "req.sub": "Feito pra funcionar com uma instalação padrão de OpenWrt — nada de pacote exótico.",
+    "req.1.title": "OpenWrt", "req.1.desc": "Com a API ubus/LuCI acessível — na sua rede local, ou por VPN/túnel próprio.",
+    "req.2.title": "AdGuard Home", "req.2.desc": "Opcional — só é usado nas telas de DNS e proteção. O resto do app funciona sem ele.",
+    "req.3.title": "Pacotes opcionais", "req.3.desc": "banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard — cada um só aparece se estiver instalado.",
+    "req.4.title": "Credenciais locais", "req.4.desc": "Usuário e senha do roteador ficam cifrados no Android Keystore, nunca em texto puro.",
+    "test.h2": "Ajude a testar o OpenGuardWRT", "test.sub": "O app está em teste fechado no Google Play. Participar é rápido:",
+    "test.step1": "1. Entre no grupo", "test.step2": "2. Aceite o convite", "test.step3": "3. Instale",
+    "test.thanks": '<strong style="color:var(--text)">Obrigado a todo mundo que já está testando</strong> — cada roteador diferente, cada firmware, cada combinação de pacotes instalados é o que torna esse painel confiável pra além do meu próprio setup. 💙',
+    "faq.h2": "Perguntas frequentes",
+    "faq.1.q": "O OpenGuardWRT altera alguma configuração do roteador?",
+    "faq.1.a": 'Não, por padrão. O app é somente leitura — a única exceção é reiniciar o firewall ou bloquear/desbloquear um dispositivo no AdGuard, e mesmo assim só depois de você ativar "Permitir alterações no roteador" nas Configurações.',
+    "faq.2.q": "Preciso instalar algo além do OpenWrt padrão?",
+    "faq.2.a": "Não. O app fala com a API ubus/LuCI que já vem em qualquer instalação padrão de OpenWrt. AdGuard Home, banIP, mwan3, ACME, SQM, DDNS, Bandix e WireGuard são todos opcionais.",
+    "faq.3.q": "O app coleta meus dados?",
+    "faq.3.a": 'Não. Não existe servidor nosso — o app fala apenas com o roteador que você mesmo configura. Suas credenciais ficam cifradas no Android Keystore e nunca saem do aparelho. Veja a <a href="README.md">política de privacidade completa</a>.',
+    "faq.4.q": "É de graça?",
+    "faq.4.a": "Sim, o painel completo é gratuito pra sempre com 1 roteador salvo. Um desbloqueio Pro opcional (compra única, sem assinatura) libera roteadores ilimitados, widgets, alertas e backup criptografado.",
+    "faq.5.q": "Em quais idiomas o app está disponível?",
+    "faq.5.a": "Português, inglês e espanhol — dá pra trocar a qualquer momento em Configurações.",
+    "faq.6.q": "Como reporto um bug ou peço um recurso?",
+    "faq.6.a": 'Abra uma <a href="https://github.com/bitten-security/OpenGuardWRT/issues">issue no GitHub</a> ou entre no <a href="https://groups.google.com/g/openguardwrt">grupo de testes</a> e comente por lá.',
+    "foot.group": "Grupo de testes", "foot.privacy": "Política de Privacidade", "foot.contact": "Contato",
+    "foot.line1": "OpenGuardWRT não tem servidor próprio, não coleta dados e não compartilha nada com terceiros.",
+  },
+  en: {
+    "meta.title": "OpenGuardWRT — a dashboard for your OpenWrt router and AdGuard Home",
+    "meta.desc": "A read-only Android dashboard for your OpenWrt router and AdGuard Home. No account, no cloud, no server in between.",
+    "nav.features": "Features", "nav.gallery": "Screenshots", "nav.requirements": "Requirements",
+    "nav.testing": "Help test", "nav.faq": "FAQ",
+    "hero.pill": "CLOSED TESTING",
+    "hero.h1": 'Control your <span class="grad">OpenWrt</span><br>with style.',
+    "hero.lead": "A read-only Android dashboard for your OpenWrt router and AdGuard Home — right on your phone, no account, no cloud, no server in between.",
+    "hero.cta_play": "▶ Google Play", "hero.cta_group": "Join the testing group",
+    "hero.img_alt": "OpenGuardWRT dashboard showing the system protected status",
+    "feat.h2": "Everything your router knows, in one place",
+    "feat.sub": "A modern, straightforward interface to keep an eye on your network, without opening LuCI.",
+    "feat.1.title": "Real-time dashboard",
+    "feat.1.desc": "CPU, RAM, storage, internet traffic and WAN status, refreshed every few seconds.",
+    "feat.2.title": "Devices and Wi-Fi",
+    "feat.2.desc": "Every device DHCP knows about, with category filters, a join QR code and the network password.",
+    "feat.3.title": "Real security",
+    "feat.3.desc": "Firewall, WireGuard, banIP, ACME, MultiWAN and more — all read-only, with an optional one-tap firewall restart.",
+    "feat.4.title": "Full AdGuard Home",
+    "feat.4.desc": "Protection, filters, statistics and a live DNS query log, with upstreams and response time front and center.",
+    "gal.h2": "Inside the app",
+    "gal.sub": "Any personal data visible in these screenshots (public IP, device names, DDNS domain) was blurred before publishing.",
+    "gal.cap1": "Dashboard", "gal.cap2": "Dashboard (network)", "gal.cap3": "Devices",
+    "gal.cap4": "Security", "gal.cap6": "DNS queries",
+    "price.h2": "Free forever, Pro if you want to support it",
+    "price.sub": "No ads, no subscription, no data collected on either plan.",
+    "price.free.title": "Free", "price.free.tag": "Forever",
+    "price.free.li1": "Full dashboard (OpenWrt + AdGuard Home)", "price.free.li2": "1 saved router",
+    "price.free.li3": "Home-screen widgets", "price.free.li4": "Background alerts",
+    "price.free.li5": "Encrypted backup",
+    "price.pro.title": "Pro", "price.pro.tag": "One-time purchase, no subscription",
+    "price.pro.li1": "Unlimited routers", "price.pro.li2": "Home-screen widgets",
+    "price.pro.li3": "Background alerts", "price.pro.li4": "Encrypted backup (export/import)",
+    "price.pro.li5": "Full AdGuard statistics and live query log",
+    "req.h2": "Requirements", "req.sub": "Built to work with a standard OpenWrt install — no exotic packages needed.",
+    "req.1.title": "OpenWrt", "req.1.desc": "With the ubus/LuCI API reachable — on your local network, or through your own VPN/tunnel.",
+    "req.2.title": "AdGuard Home", "req.2.desc": "Optional — only used for the DNS/protection screens. Everything else works without it.",
+    "req.3.title": "Optional packages", "req.3.desc": "banIP, mwan3, ACME, SQM, DDNS, Bandix and WireGuard — each one only shows up if it's installed.",
+    "req.4.title": "Local credentials", "req.4.desc": "Your router's username and password stay encrypted in the Android Keystore, never in plain text.",
+    "test.h2": "Help test OpenGuardWRT", "test.sub": "The app is in closed testing on Google Play. Joining is quick:",
+    "test.step1": "1. Join the group", "test.step2": "2. Accept the invite", "test.step3": "3. Install",
+    "test.thanks": '<strong style="color:var(--text)">Thanks to everyone already testing</strong> — every different router, firmware version and combination of installed packages you bring is what makes this dashboard reliable beyond just my own setup. 💙',
+    "faq.h2": "Frequently asked questions",
+    "faq.1.q": "Does OpenGuardWRT change any router setting?",
+    "faq.1.a": 'No, by default. The app is read-only — the one exception is restarting the firewall or blocking/unblocking a device in AdGuard, and even then only after you turn on "Allow router changes" in Settings.',
+    "faq.2.q": "Do I need to install anything beyond stock OpenWrt?",
+    "faq.2.a": "No. The app talks to the ubus/LuCI API that already ships with any standard OpenWrt install. AdGuard Home, banIP, mwan3, ACME, SQM, DDNS, Bandix and WireGuard are all optional.",
+    "faq.3.q": "Does the app collect my data?",
+    "faq.3.a": 'No. There\'s no server of ours — the app only talks to the router you configure yourself. Your credentials stay encrypted in the Android Keystore and never leave the device. See the <a href="README-enUS.md">full privacy policy</a>.',
+    "faq.4.q": "Is it free?",
+    "faq.4.a": "Yes, the full dashboard is free forever with 1 saved router. An optional Pro unlock (one-time purchase, no subscription) adds unlimited routers, widgets, alerts and encrypted backup.",
+    "faq.5.q": "What languages is the app available in?",
+    "faq.5.a": "Portuguese, English and Spanish — switch anytime in Settings.",
+    "faq.6.q": "How do I report a bug or request a feature?",
+    "faq.6.a": 'Open an <a href="https://github.com/bitten-security/OpenGuardWRT/issues">issue on GitHub</a> or join the <a href="https://groups.google.com/g/openguardwrt">testing group</a> and post there.',
+    "foot.group": "Testing group", "foot.privacy": "Privacy Policy", "foot.contact": "Contact",
+    "foot.line1": "OpenGuardWRT has no server of its own, collects no data, and shares nothing with third parties.",
+  },
+  es: {
+    "meta.title": "OpenGuardWRT — panel para tu OpenWrt y AdGuard Home",
+    "meta.desc": "Panel Android de solo lectura para tu router OpenWrt y AdGuard Home. Sin cuenta, sin nube, sin servidor de por medio.",
+    "nav.features": "Funciones", "nav.gallery": "Capturas", "nav.requirements": "Requisitos",
+    "nav.testing": "Ayuda a probar", "nav.faq": "Preguntas",
+    "hero.pill": "EN PRUEBA CERRADA",
+    "hero.h1": 'Controla tu <span class="grad">OpenWrt</span><br>con estilo.',
+    "hero.lead": "Panel Android de solo lectura para tu router OpenWrt y AdGuard Home — directo en tu teléfono, sin cuenta, sin nube, sin servidor de por medio.",
+    "hero.cta_play": "▶ Google Play", "hero.cta_group": "Unirme al grupo de pruebas",
+    "hero.img_alt": "Dashboard de OpenGuardWRT mostrando el estado del sistema protegido",
+    "feat.h2": "Todo lo que tu router sabe, en un solo lugar",
+    "feat.sub": "Una interfaz moderna y directa para seguir tu red, sin abrir LuCI.",
+    "feat.1.title": "Dashboard en tiempo real",
+    "feat.1.desc": "CPU, RAM, almacenamiento, tráfico de internet y estado del WAN, actualizados cada pocos segundos.",
+    "feat.2.title": "Dispositivos y Wi-Fi",
+    "feat.2.desc": "Todo dispositivo conocido por el DHCP, con filtro por categoría, código QR de conexión y la contraseña de la red.",
+    "feat.3.title": "Seguridad de verdad",
+    "feat.3.desc": "Firewall, WireGuard, banIP, ACME, MultiWAN y más — todo de solo lectura, con reinicio opcional del firewall.",
+    "feat.4.title": "AdGuard Home completo",
+    "feat.4.desc": "Protección, filtros, estadísticas y registro de consultas DNS en vivo, con upstreams y tiempo de respuesta destacados.",
+    "gal.h2": "Por dentro de la app",
+    "gal.sub": "Todo dato personal visible en las capturas (IP pública, nombres de dispositivo, dominio DDNS) fue difuminado antes de publicarlo.",
+    "gal.cap1": "Dashboard", "gal.cap2": "Dashboard (red)", "gal.cap3": "Dispositivos",
+    "gal.cap4": "Seguridad", "gal.cap6": "Consultas DNS",
+    "price.h2": "Gratis para siempre, Pro si quieres apoyar",
+    "price.sub": "Sin anuncios, sin suscripción, sin datos recolectados en ninguno de los dos planes.",
+    "price.free.title": "Gratis", "price.free.tag": "Para siempre",
+    "price.free.li1": "Panel completo (OpenWrt + AdGuard Home)", "price.free.li2": "1 router guardado",
+    "price.free.li3": "Widgets en la pantalla de inicio", "price.free.li4": "Alertas en segundo plano",
+    "price.free.li5": "Copia de seguridad cifrada",
+    "price.pro.title": "Pro", "price.pro.tag": "Compra única, sin suscripción",
+    "price.pro.li1": "Routers ilimitados", "price.pro.li2": "Widgets en la pantalla de inicio",
+    "price.pro.li3": "Alertas en segundo plano", "price.pro.li4": "Copia de seguridad cifrada (exportar/importar)",
+    "price.pro.li5": "Estadísticas y registro en vivo completos de AdGuard",
+    "req.h2": "Requisitos", "req.sub": "Hecho para funcionar con una instalación estándar de OpenWrt — sin paquetes exóticos.",
+    "req.1.title": "OpenWrt", "req.1.desc": "Con la API ubus/LuCI accesible — en tu red local, o por tu propia VPN/túnel.",
+    "req.2.title": "AdGuard Home", "req.2.desc": "Opcional — solo se usa en las pantallas de DNS y protección. El resto de la app funciona sin él.",
+    "req.3.title": "Paquetes opcionales", "req.3.desc": "banIP, mwan3, ACME, SQM, DDNS, Bandix y WireGuard — cada uno solo aparece si está instalado.",
+    "req.4.title": "Credenciales locales", "req.4.desc": "El usuario y contraseña de tu router quedan cifrados en el Android Keystore, nunca en texto plano.",
+    "test.h2": "Ayuda a probar OpenGuardWRT", "test.sub": "La app está en prueba cerrada en Google Play. Participar es rápido:",
+    "test.step1": "1. Únete al grupo", "test.step2": "2. Acepta la invitación", "test.step3": "3. Instala",
+    "test.thanks": '<strong style="color:var(--text)">Gracias a todos los que ya están probando</strong> — cada router diferente, cada firmware, cada combinación de paquetes instalados es lo que hace este panel confiable más allá de mi propia configuración. 💙',
+    "faq.h2": "Preguntas frecuentes",
+    "faq.1.q": "¿OpenGuardWRT cambia alguna configuración del router?",
+    "faq.1.a": 'No, por defecto. La app es de solo lectura — la única excepción es reiniciar el firewall o bloquear/desbloquear un dispositivo en AdGuard, y aun así solo después de activar "Permitir cambios en el router" en Configuración.',
+    "faq.2.q": "¿Necesito instalar algo además de OpenWrt estándar?",
+    "faq.2.a": "No. La app habla con la API ubus/LuCI que ya viene en cualquier instalación estándar de OpenWrt. AdGuard Home, banIP, mwan3, ACME, SQM, DDNS, Bandix y WireGuard son todos opcionales.",
+    "faq.3.q": "¿La app recolecta mis datos?",
+    "faq.3.a": 'No. No existe un servidor nuestro — la app solo habla con el router que tú mismo configuras. Tus credenciales quedan cifradas en el Android Keystore y nunca salen del dispositivo. Consulta la <a href="README.md">política de privacidad completa</a>.',
+    "faq.4.q": "¿Es gratis?",
+    "faq.4.a": "Sí, el panel completo es gratis para siempre con 1 router guardado. Un desbloqueo Pro opcional (compra única, sin suscripción) añade routers ilimitados, widgets, alertas y copia de seguridad cifrada.",
+    "faq.5.q": "¿En qué idiomas está disponible la app?",
+    "faq.5.a": "Portugués, inglés y español — puedes cambiar en cualquier momento en Configuración.",
+    "faq.6.q": "¿Cómo reporto un error o pido una función?",
+    "faq.6.a": 'Abre un <a href="https://github.com/bitten-security/OpenGuardWRT/issues">issue en GitHub</a> o únete al <a href="https://groups.google.com/g/openguardwrt">grupo de pruebas</a> y coméntalo ahí.',
+    "foot.group": "Grupo de pruebas", "foot.privacy": "Política de Privacidad", "foot.contact": "Contacto",
+    "foot.line1": "OpenGuardWRT no tiene servidor propio, no recolecta datos y no comparte nada con terceros.",
+  }
+};
+
+function applyLang(lang) {
+  const dict = I18N[lang] || I18N.pt;
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const value = dict[key];
+    if (value == null) return;
+    if (el.hasAttribute('data-i18n-attr')) {
+      el.setAttribute(el.getAttribute('data-i18n-attr'), value);
+    } else {
+      el.innerHTML = value;
+    }
+  });
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+  });
+}
+
+function setLang(lang) {
+  applyLang(lang);
+  try { localStorage.setItem('oggwrt_lang', lang); } catch (e) {}
+}
+
+(function initLang() {
+  let lang = null;
+  try { lang = localStorage.getItem('oggwrt_lang'); } catch (e) {}
+  if (!lang) {
+    const nav = (navigator.language || 'pt').toLowerCase();
+    lang = nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : 'pt';
+  }
+  applyLang(lang);
+})();
+</script>
 
 </body>
 </html>
