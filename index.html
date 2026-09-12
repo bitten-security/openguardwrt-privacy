@@ -25,6 +25,11 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
+    /* Hidden until the init script below picks the right language and
+       swaps every [data-i18n] node — avoids a flash of Portuguese (the
+       markup's static fallback text) before it switches to whichever
+       language actually applies. */
+    visibility:hidden;
     margin:0;
     background:var(--bg);
     color:var(--text);
@@ -59,9 +64,11 @@
   /* Language switcher */
   .langsw{display:flex;gap:4px;background:var(--surface-alt);border-radius:999px;padding:4px}
   .langsw button{
-    border:none;background:transparent;cursor:pointer;font-size:17px;line-height:1;
+    display:flex;align-items:center;
+    border:none;background:transparent;cursor:pointer;line-height:1;
     padding:6px 8px;border-radius:999px;opacity:.5;transition:opacity .15s;
   }
+  .langsw button img{width:20px;height:14px;border-radius:2px;display:block}
   .langsw button:hover{opacity:.8}
   .langsw button.active{opacity:1;background:var(--surface);box-shadow:0 0 0 1px var(--border)}
 
@@ -170,6 +177,7 @@
 </style>
 </head>
 <body>
+<noscript><style>body{visibility:visible}</style></noscript>
 
 <header class="nav">
   <div class="wrap">
@@ -183,9 +191,9 @@
     </nav>
     <div class="nav-right">
       <div class="langsw" role="group" aria-label="Language">
-        <button type="button" data-lang-btn="en" onclick="setLang('en')" title="English">🇺🇸</button>
-        <button type="button" data-lang-btn="es" onclick="setLang('es')" title="Español">🇪🇸</button>
-        <button type="button" data-lang-btn="pt" onclick="setLang('pt')" title="Português">🇧🇷</button>
+        <button type="button" data-lang-btn="en" onclick="setLang('en')" title="English"><img src="https://flagcdn.com/24x18/us.png" alt="US"></button>
+        <button type="button" data-lang-btn="es" onclick="setLang('es')" title="Español"><img src="https://flagcdn.com/24x18/es.png" alt="ES"></button>
+        <button type="button" data-lang-btn="pt" onclick="setLang('pt')" title="Português"><img src="https://flagcdn.com/24x18/br.png" alt="BR"></button>
       </div>
       <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.openguardwrt.openguardwrt" style="padding:8px 18px;font-size:13px">Google Play</a>
     </div>
@@ -575,11 +583,11 @@ function setLang(lang) {
 (function initLang() {
   let lang = null;
   try { lang = localStorage.getItem('oggwrt_lang'); } catch (e) {}
-  if (!lang) {
-    const nav = (navigator.language || 'pt').toLowerCase();
-    lang = nav.startsWith('es') ? 'es' : nav.startsWith('en') ? 'en' : 'pt';
-  }
+  // English is the default for first-time visitors — only a previously
+  // saved manual choice (via the flag buttons) overrides it.
+  if (!lang) lang = 'en';
   applyLang(lang);
+  document.body.style.visibility = 'visible';
 })();
 </script>
 
