@@ -1,8 +1,8 @@
 Privacy Policy — OpenGuardWRT
-Last updated: August 30, 2026
+Last updated: October 23, 2026
 Also published as a page at: https://bitten-security.github.io/openguardwrt-privacy/
 
-[OpenGuardWRT](https://github.com/bitten-security/OpenGuardWRT) is a read-only dashboard for your own OpenWrt router and AdGuard Home instance. This document explains, plainly, what data the app handles.
+[OpenGuardWRT](https://github.com/bitten-security/OpenGuardWRT) is a dashboard for your own OpenWrt router and AdGuard Home instance. It is read-only by default; the optional Pro edit features only ever send a change you explicitly confirm, straight to your own router or AdGuard Home. This document explains, plainly, what data the app handles.
 
 Summary
 OpenGuardWRT has no server of its own, collects no data, uses no analytics, has no ads, and shares nothing with third parties. The app only talks to the router address you configure yourself, on your local network or over a tunnel/VPN you set up yourself.
@@ -13,6 +13,8 @@ What data the app handles
 * Data shown on the dashboard (connected devices, traffic, DNS status, etc.): read directly from your router on each screen and kept only in the app's memory while you use it — nothing is sent anywhere outside your router/network.
 * App lock (PIN/biometrics), if you enable it: uses Android's own biometric authentication (`local_auth`). The app only receives a "yes/no" from the operating system — it never has access to your fingerprint or face.
 * App preferences (theme, language, display settings): saved locally on the device.
+* Device nicknames you give in the Devices tab: saved locally on the device only — never sent to the router or anywhere else.
+* Changes you confirm (Pro): when you turn a Wi-Fi network, firewall rule or AdGuard filter on/off, restart the router, or reserve an IP, the app sends that one change directly to your own router/AdGuard Home. Nothing goes anywhere else.
 
 What the app never does
 
@@ -20,7 +22,7 @@ What the app never does
 * Never sends data to any server of ours — because none exists.
 * No analytics, tracking, ad SDKs, or telemetry of any kind.
 * Never shares data with third parties.
-* Never reads or stores the DDNS password/credential fields or the ACME certificate fields configured on your router — even though the app is read-only, these two specific fields are deliberately skipped by the app.
+* Never reads or stores the DDNS password/credential fields or the ACME certificate fields configured on your router — these two specific fields are deliberately skipped by the app, even though the app can make confirmed edits.
 
 Bufferbloat Test
 The "Test" button on the Bufferbloat Test loads, inside the app itself (in a WebView), the page of an external provider of your choice — [LibreQoS](https://test.libreqos.com/) or [Waveform](https://www.waveform.com/tools/bufferbloat). The measurement itself runs entirely on those providers' own servers, against your device's internet connection — OpenGuardWRT takes no part in the measurement, it only displays their page. Check each provider's own privacy policy if you use this test.

@@ -1,12 +1,14 @@
 # Política de Privacidade — OpenGuardWRT
 
-**Última atualização: 30 de agosto de 2026**
+**Última atualização: 23 de outubro de 2026**
 
 > Também publicada como página em:
 > https://bitten-security.github.io/openguardwrt-privacy/
 
 [OpenGuardWRT](https://github.com/bitten-security/OpenGuardWRT) é um
-painel de leitura para o seu próprio roteador OpenWrt e instância do
+painel para o seu próprio roteador OpenWrt e instância do AdGuard Home.
+É somente leitura por padrão; as edições opcionais do Pro só enviam uma
+alteração que você confirma explicitamente, direto para o seu roteador ou
 AdGuard Home. Este documento explica, de forma direta, que dados o app
 manuseia.
 
@@ -35,6 +37,12 @@ rede local ou por um túnel/VPN que você mesmo monta.
   rosto.
 - **Preferências do app** (tema, idioma, configurações de exibição): ficam
   salvas localmente no aparelho.
+- **Apelidos de dispositivos** que você define na aba Dispositivos: ficam
+  salvos só no aparelho — nunca vão para o roteador nem para outro lugar.
+- **Alterações que você confirma (Pro)**: ao ligar/desligar uma rede Wi-Fi,
+  regra de firewall ou filtro do AdGuard, reiniciar o roteador ou reservar
+  um IP, o app envia essa alteração direto para o seu roteador/AdGuard
+  Home. Nada vai para nenhum outro lugar.
 
 ## O que o app nunca faz
 
@@ -44,9 +52,9 @@ rede local ou por um túnel/VPN que você mesmo monta.
   qualquer tipo.
 - Não compartilha dados com terceiros.
 - Não lê nem armazena os campos de senha/credenciais de DDNS ou de
-  certificados ACME configurados no seu roteador — mesmo sendo somente
-  leitura, esses dois campos específicos são propositalmente ignorados
-  pelo app.
+  certificados ACME configurados no seu roteador — esses dois campos
+  específicos são propositalmente ignorados pelo app, mesmo o app podendo
+  fazer edições confirmadas.
 
 ## Teste de Bufferbloat
 
